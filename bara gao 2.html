@@ -1,0 +1,83 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+	<title>गांव की खबरें</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		.news {
+			margin-bottom: 20px;
+			padding: 20px;
+			border-bottom: 1px solid #ccc;
+		}
+		.news h2 {
+			margin-top: 0;
+		}
+	</style>
+</head>
+<body>
+	<h1>गांव की खबरें</h1>
+	<div id="news-container">
+		<!-- खबरें यहाँ आएंगी -->
+	</div>
+
+	<script>
+		// खबरों का डेटा
+		let newsData = [
+			{
+				title: "गांव में नए स्कूल की स्थापना",
+				description: "गांव में नए स्कूल की स्थापना की गई है, जिसमें बच्चों को अच्छी शिक्षा मिलेगी।",
+				date: "2023-02-20"
+			},
+			{
+				title: "गांव में स्वास्थ्य शिविर का आयोजन",
+				description: "गांव में स्वास्थ्य शिविर का आयोजन किया गया, जिसमें लोगों को निशुल्क स्वास्थ्य सेवाएं प्रदान की गईं।",
+				date: "2023-02-15"
+			},
+			{
+				title: "गांव में खेल प्रतियोगिता का आयोजन",
+				description: "गांव में खेल प्रतियोगिता का आयोजन किया गया, जिसमें युवाओं ने बढ़-चढ़कर भाग लिया।",
+				date: "2023-02-10"
+			}
+		];
+
+		// खबरों को प्रदर्शित करने के लिए फ़ंक्शन
+		function displayNews() {
+			let newsContainer = document.getElementById("news-container");
+			newsContainer.innerHTML = "";
+
+			newsData.forEach(news => {
+				let newsElement = document.createElement("div");
+				newsElement.className = "news";
+
+				let titleElement = document.createElement("h2");
+				titleElement.textContent = news.title;
+				newsElement.appendChild(titleElement);
+
+				let descriptionElement = document.createElement("p");
+				descriptionElement.textContent = news.description;
+				newsElement.appendChild(descriptionElement);
+
+				let dateElement = document.createElement("p");
+				dateElement.textContent = news.date;
+				newsElement.appendChild(dateElement);
+
+				newsContainer.appendChild(newsElement);
+			});
+		}
+
+		// खबरों को प्रदर्शित करें
+		displayNews();
+
+		// खबरों को हर दिन अपडेट करने के लिए
+		setInterval(() => {
+			// खबरों का डेटा अपडेट करें
+			// यहाँ आप अपने डेटा को अपडेट करने के लिए कोई एपीआई या अन्य तरीका उपयोग कर सकते हैं
+
+			// खबरों को प्रदर्शित करें
+			displayNews();
+		}, 86400000); // 86400000 मिलिसेकंड = 1 दिन
+	</script>
+</body>
+</html>
